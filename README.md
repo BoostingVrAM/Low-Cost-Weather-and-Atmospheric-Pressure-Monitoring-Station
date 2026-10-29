@@ -5,7 +5,13 @@
 ---
 
 ## 📌 Project Overview (परियोजना का विवरण)
-This project is an IoT/Embedded Systems-based **Low-Cost Weather and Atmospheric Pressure Monitoring Station**. It measures real-time ambient parameters, performs barometric altitude estimation and dew point calculations, and outputs the information simultaneously to a **16x2 LCD Display (I2C)** and the **Serial Monitor (CLI Dashboard & CSV format)**.
+
+This project is a **low-cost weather and atmospheric pressure monitoring station** built on IoT and embedded systems principles. It reads real-time environmental data (temperature, humidity, and barometric pressure), then uses it to estimate **altitude** from air pressure and calculate the **dew point**.
+
+Results are displayed in two ways at the same time:
+
+- **16x2 I2C LCD**: a compact on-device display for quick readings
+- **Serial Monitor**: a CLI dashboard, plus **CSV output** for logging and later analysis in tools like Excel or Python.
 
 ### Key Metrics Monitored:
 1. **Atmospheric Pressure**: In `hPa` (hectopascals) and `mmHg` (millimeters of mercury).
