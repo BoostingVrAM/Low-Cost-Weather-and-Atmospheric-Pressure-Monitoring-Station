@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "Antigravity Weather Station",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 60,
+      "left": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -60,
+      "left": 10,
+      "attrs": { "temperature": "28.5", "humidity": "65" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "baro1",
+      "top": 150,
+      "left": 10,
+      "attrs": { "title": "Barometer (Pressure Sensor)" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 30,
+      "left": 400,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:rx", "", [] ],
+    [ "esp:RX", "$serialMonitor:tx", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:23", "orange", [ "v0" ] ],
+    [ "baro1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "baro1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "baro1:SIG", "esp:34", "green", [ "v0" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "lcd1:SDA", "esp:21", "blue", [ "v0" ] ],
+    [ "lcd1:SCL", "esp:22", "yellow", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

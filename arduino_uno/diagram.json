@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Antigravity Weather Station",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 60, "left": 180, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -60, "left": 10, "attrs": { "temperature": "28.5", "humidity": "65" } },
+    { "type": "wokwi-potentiometer", "id": "baro1", "top": 150, "left": 10, "attrs": { "title": "Barometer (Pressure Sensor)" } },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 30, "left": 400, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    [ "uno:TX", "$serialMonitor:rx", "", [] ],
+    [ "uno:RX", "$serialMonitor:tx", "", [] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "dht1:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "dht1:SDA", "uno:2", "orange", [ "v0" ] ],
+    [ "baro1:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "baro1:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "baro1:SIG", "uno:A0", "green", [ "v0" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "lcd1:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "lcd1:SDA", "uno:A4", "blue", [ "v0" ] ],
+    [ "lcd1:SCL", "uno:A5", "yellow", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
